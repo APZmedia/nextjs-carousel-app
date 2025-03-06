@@ -1,0 +1,2008 @@
+{
+  "last_node_id": 80,
+  "last_link_id": 94,
+  "nodes": [
+    {
+      "id": 34,
+      "type": "Griptape Create: Agent",
+      "pos": [
+        680,
+        3180
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "label": "agent",
+          "type": "AGENT",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "config",
+          "label": "config",
+          "type": "CONFIG",
+          "shape": 7,
+          "link": 80
+        },
+        {
+          "name": "tools",
+          "label": "tools",
+          "type": "TOOL_LIST",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "rulesets",
+          "label": "rulesets",
+          "type": "RULESET",
+          "shape": 7,
+          "link": 27
+        },
+        {
+          "name": "input_string",
+          "label": "input_string",
+          "type": "STRING",
+          "widget": {
+            "name": "input_string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "label": "OUTPUT",
+          "type": "STRING",
+          "shape": 3,
+          "links": null,
+          "slot_index": 0
+        },
+        {
+          "name": "AGENT",
+          "label": "AGENT",
+          "type": "AGENT",
+          "shape": 3,
+          "links": [
+            30
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Agent"
+      },
+      "widgets_values": [
+        "",
+        "",
+        3
+      ]
+    },
+    {
+      "id": 33,
+      "type": "Griptape Create: Agent",
+      "pos": [
+        680,
+        2860
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "label": "agent",
+          "type": "AGENT",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "config",
+          "label": "config",
+          "type": "CONFIG",
+          "shape": 7,
+          "link": 79
+        },
+        {
+          "name": "tools",
+          "label": "tools",
+          "type": "TOOL_LIST",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "rulesets",
+          "label": "rulesets",
+          "type": "RULESET",
+          "shape": 7,
+          "link": 28
+        },
+        {
+          "name": "input_string",
+          "label": "input_string",
+          "type": "STRING",
+          "widget": {
+            "name": "input_string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "label": "OUTPUT",
+          "type": "STRING",
+          "shape": 3,
+          "links": null,
+          "slot_index": 0
+        },
+        {
+          "name": "AGENT",
+          "label": "AGENT",
+          "type": "AGENT",
+          "shape": 3,
+          "links": [
+            32
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Agent"
+      },
+      "widgets_values": [
+        "",
+        "",
+        3
+      ]
+    },
+    {
+      "id": 28,
+      "type": "Griptape Create: Rules",
+      "pos": [
+        80,
+        2500
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "RULES",
+          "label": "RULES",
+          "type": "RULESET",
+          "shape": 3,
+          "links": [
+            29
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "NAME",
+          "label": "NAME",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Rules"
+      },
+      "widgets_values": [
+        "Cinematographer",
+        "You are an expert cinematographer\nYou care deeply about light, shadow color and composition. \nWhen coming up with image prompts, you always specify the position of the camera, the lens, and the color.\nYou are a big fan of masters of photography composition like Sebastiao Salgado and Henry Cartier Bresson\nYou are specific about the technical details of a shot. \nYour responses are brief an concise. \nAlways respond with your identity so the agent knows who you are."
+      ]
+    },
+    {
+      "id": 35,
+      "type": "Griptape Convert: Agent to Tool",
+      "pos": [
+        1280,
+        2840
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "label": "agent",
+          "type": "AGENT",
+          "shape": 7,
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TOOL",
+          "label": "TOOL",
+          "type": "TOOL_LIST",
+          "shape": 3,
+          "links": [
+            34
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Convert: Agent to Tool"
+      },
+      "widgets_values": [
+        true,
+        "Color theorist",
+        "Describe what the agent should be used for"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "Griptape Convert: Agent to Tool",
+      "pos": [
+        1270,
+        3170
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "label": "agent",
+          "type": "AGENT",
+          "shape": 7,
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TOOL",
+          "label": "TOOL",
+          "type": "TOOL_LIST",
+          "shape": 3,
+          "links": [
+            35
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Convert: Agent to Tool"
+      },
+      "widgets_values": [
+        true,
+        "Art director detail enthusiast",
+        "Describe what the agent should be used for"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "Griptape Create: Rules",
+      "pos": [
+        90,
+        2850
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "RULES",
+          "label": "RULES",
+          "type": "RULESET",
+          "shape": 3,
+          "links": [
+            28
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "NAME",
+          "label": "NAME",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Rules"
+      },
+      "widgets_values": [
+        "Color Theorist",
+        "You are an expert color theorist and digital imaging. \nYou have a deep understanding of how color and style impacts one's psycological outlook.\nYour responses are brief and concise. \nAlways respond with your identity so the agent knows who you are."
+      ]
+    },
+    {
+      "id": 30,
+      "type": "Griptape Create: Rules",
+      "pos": [
+        70,
+        3160
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "RULES",
+          "label": "RULES",
+          "type": "RULESET",
+          "shape": 3,
+          "links": [
+            27
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "NAME",
+          "label": "NAME",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Rules"
+      },
+      "widgets_values": [
+        "Detail Enthusiast",
+        "You are an art director and concept artist that care about the unique detailes an dspecific descriptions of items. When describing things, be specific and not generic. Find the  unique qualities of items that make them special and different.\nThe preferred style of asimov media is those sci-fi 80s and 90s film  posters and overall aesthetics. \nInstead of being obvious, you propose visual analogies combining elements that are not always together, creating visual methaphors.\nYour responses are brief and concise. Respond with your identity so the agent knows who you are"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "Griptape Combine: Tool List",
+      "pos": [
+        2306.732421875,
+        2904.9091796875
+      ],
+      "size": [
+        226.8000030517578,
+        86
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "tool_1",
+          "label": "tool_1",
+          "type": "TOOL_LIST",
+          "shape": 7,
+          "link": 33
+        },
+        {
+          "name": "tool_2",
+          "label": "tool_2",
+          "type": "TOOL_LIST",
+          "link": 34
+        },
+        {
+          "name": "tool_3",
+          "label": "tool_3",
+          "type": "TOOL_LIST",
+          "link": 35
+        },
+        {
+          "name": "tool_4",
+          "label": "tool_4",
+          "type": "TOOL_LIST",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TOOL_LIST",
+          "label": "TOOL_LIST",
+          "type": "TOOL_LIST",
+          "shape": 3,
+          "links": [
+            36
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Combine: Tool List"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 53,
+      "type": "Text Multiline",
+      "pos": [
+        2168.29296875,
+        2528.476318359375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            58
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "\n{\n  \"Title\": \"Ocean Warming: The Hidden Time Bomb\",\n  \"Subtitle\": \"The alarming rate at which our oceans are heating up\",\n  \"Text01\": \"Our planet's oceans are absorbing the equivalent of an atomic bomb's worth of heat every second due to global warming. This rapid heating is causing catastrophic consequences for marine ecosystems, sea levels, and weather patterns worldwide. In this article, we delve into the causes, effects, and potential solutions to combat ocean warming.\",\n  \"Text02\": \"Causes: Greenhouse gas emissions, particularly carbon dioxide, trap heat in the Earth's atmosphere, causing global temperatures to rise. This excess heat is absorbed by the oceans, leading to their rapid warming.\",\n  \"Text03\": \"Effects: Ocean warming leads to coral bleaching, acidification, and reduced oxygen levels, threatening marine biodiversity. It also contributes to rising sea levels due to thermal expansion and melting ice caps, posing a significant threat to coastal communities.\",\n  \"Hashtag\": \"#OceanWarming\"\n}"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "Griptape Convert: Agent to Tool",
+      "pos": [
+        1280,
+        2520
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "label": "agent",
+          "type": "AGENT",
+          "shape": 7,
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "TOOL",
+          "label": "TOOL",
+          "type": "TOOL_LIST",
+          "shape": 3,
+          "links": [
+            33
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Convert: Agent to Tool"
+      },
+      "widgets_values": [
+        true,
+        "Cinematographer",
+        "Cinematography indications"
+      ]
+    },
+    {
+      "id": 54,
+      "type": "CLIPTextEncode",
+      "pos": [
+        4347.7822265625,
+        3210.34375
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 60,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            66
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 55,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        4428.7822265625,
+        3265.34375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "shape": 3,
+          "links": [
+            67
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 56,
+      "type": "VAEDecode",
+      "pos": [
+        5108.7822265625,
+        3005.34375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 61
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 62
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            63
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 57,
+      "type": "SaveImage",
+      "pos": [
+        5332.7822265625,
+        3004.34375
+      ],
+      "size": [
+        985.3012084960938,
+        1060.3828125
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 63
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "KSampler",
+      "pos": [
+        4773.7822265625,
+        3002.34375
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 64
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 65
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 66
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "shape": 3,
+          "links": [
+            61
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        453247341919524,
+        "randomize",
+        4,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 59,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        4005.7822265625,
+        3002.34375
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "shape": 3,
+          "links": [
+            64
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "shape": 3,
+          "links": [
+            60,
+            68
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "shape": 3,
+          "links": [
+            62
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "flux1-schnell-fp8.safetensors"
+      ]
+    },
+    {
+      "id": 60,
+      "type": "CLIPTextEncode",
+      "pos": [
+        4341.7822265625,
+        3002.34375
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 68
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 94
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            65
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a bottle with a beautiful rainbow galaxy inside it on top of a wooden table in the middle of a modern kitchen beside a plate of vegetables and mushrooms and a wine glasse that contains a planet earth with a plate with a half eaten apple pie on it"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 61,
+      "type": "Note",
+      "pos": [
+        4788.7822265625,
+        3311.34375
+      ],
+      "size": [
+        282.8617858886719,
+        164.08004760742188
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Note that Flux dev and schnell do not have any negative prompt so CFG should be set to 1.0. Setting CFG to 1.0 means the negative prompt is ignored.\n\nThe schnell model is a distilled model that can generate a good image with only 4 steps."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 62,
+      "type": "CLIPTextEncode",
+      "pos": [
+        4360,
+        2030
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 69,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            75
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 63,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        4440,
+        2080
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "shape": 3,
+          "links": [
+            76
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 64,
+      "type": "VAEDecode",
+      "pos": [
+        5120,
+        1820
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 70
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            72
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 65,
+      "type": "SaveImage",
+      "pos": [
+        5340,
+        1820
+      ],
+      "size": [
+        985.3012084960938,
+        1060.3828125
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 72
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "KSampler",
+      "pos": [
+        4780,
+        1820
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 73
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 74
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 75
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 76
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "shape": 3,
+          "links": [
+            70
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        1052678203527136,
+        "randomize",
+        4,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 68,
+      "type": "CLIPTextEncode",
+      "pos": [
+        4350,
+        1820
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 77
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 93
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            74
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a bottle with a beautiful rainbow galaxy inside it on top of a wooden table in the middle of a modern kitchen beside a plate of vegetables and mushrooms and a wine glasse that contains a planet earth with a plate with a half eaten apple pie on it"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 69,
+      "type": "Note",
+      "pos": [
+        4800,
+        2130
+      ],
+      "size": [
+        282.8617858886719,
+        164.08004760742188
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Note that Flux dev and schnell do not have any negative prompt so CFG should be set to 1.0. Setting CFG to 1.0 means the negative prompt is ignored.\n\nThe schnell model is a distilled model that can generate a good image with only 4 steps."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 67,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        4020,
+        1820
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "shape": 3,
+          "links": [
+            73
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "shape": 3,
+          "links": [
+            69,
+            77
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "shape": 3,
+          "links": [
+            71
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "flux1-schnell-fp8.safetensors"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "Griptape Create: Agent",
+      "pos": [
+        680,
+        2520
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "label": "agent",
+          "type": "AGENT",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "config",
+          "label": "config",
+          "type": "CONFIG",
+          "shape": 7,
+          "link": 78
+        },
+        {
+          "name": "tools",
+          "label": "tools",
+          "type": "TOOL_LIST",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "rulesets",
+          "label": "rulesets",
+          "type": "RULESET",
+          "shape": 7,
+          "link": 29
+        },
+        {
+          "name": "input_string",
+          "label": "input_string",
+          "type": "STRING",
+          "widget": {
+            "name": "input_string"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "label": "OUTPUT",
+          "type": "STRING",
+          "shape": 3,
+          "links": null,
+          "slot_index": 0
+        },
+        {
+          "name": "AGENT",
+          "label": "AGENT",
+          "type": "AGENT",
+          "shape": 3,
+          "links": [
+            31
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Agent"
+      },
+      "widgets_values": [
+        "",
+        "",
+        3
+      ]
+    },
+    {
+      "id": 71,
+      "type": "Griptape Agent Config: Ollama Drivers",
+      "pos": [
+        -540.5426025390625,
+        2655.880859375
+      ],
+      "size": [
+        310.79998779296875,
+        380
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONFIG",
+          "type": "CONFIG",
+          "links": [
+            78,
+            79,
+            80
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Agent Config: Ollama Drivers"
+      },
+      "widgets_values": [
+        "http://127.0.0.1",
+        "11434",
+        "Prompt Driver",
+        "llama3.2:latest",
+        2,
+        0.1,
+        2048,
+        "fixed",
+        true,
+        -1,
+        240,
+        "Embedding Driver",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 77,
+      "type": "GetTextFromJson",
+      "pos": [
+        3757.470458984375,
+        2642.38427734375
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "json",
+          "type": "JSON",
+          "link": 90
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            85
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetTextFromJson"
+      },
+      "widgets_values": [
+        "Image_cover_prompt"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "Griptape Display: Text",
+      "pos": [
+        3154.18310546875,
+        2889.01708984375
+      ],
+      "size": [
+        419.9028015136719,
+        520
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INPUT",
+          "label": "INPUT",
+          "type": "STRING",
+          "widget": {
+            "name": "INPUT"
+          },
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "label": "OUTPUT",
+          "type": "STRING",
+          "shape": 3,
+          "links": [
+            81
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Display: Text"
+      },
+      "widgets_values": [
+        "",
+        "{\n  \"Image_cover_prompt\": \"Illustration of the alarming rate of ocean warming, depicting a vast ocean absorbing intense heat, symbolized by fiery waves and rising steam, digital painting, highly detailed, cinematic lighting. Negative: blurry, grainy, deformed, low contrast.\",\n  \"Image01_prompt\": \"Illustration of the effects of ocean warming, showing coral bleaching, acidification, and reduced oxygen levels, with marine life struggling in a heated, changing environment, digital painting, highly detailed, dramatic shadows. Negative: blurry, grainy, deformed, low contrast.\"\n}"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 74,
+      "type": "LoadJsonFromText",
+      "pos": [
+        3161.588623046875,
+        2615.197021484375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "STRING",
+          "widget": {
+            "name": "data"
+          },
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "JSON",
+          "type": "JSON",
+          "links": [
+            90,
+            91
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadJsonFromText"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 38,
+      "type": "Griptape Create: Agent",
+      "pos": [
+        2639.368408203125,
+        2885.818115234375
+      ],
+      "size": [
+        410.1783752441406,
+        378.4276428222656
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "agent",
+          "label": "agent",
+          "type": "AGENT",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "config",
+          "label": "config",
+          "type": "CONFIG",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "tools",
+          "label": "tools",
+          "type": "TOOL_LIST",
+          "shape": 7,
+          "link": 36
+        },
+        {
+          "name": "rulesets",
+          "label": "rulesets",
+          "type": "RULESET",
+          "shape": 7,
+          "link": 37
+        },
+        {
+          "name": "input_string",
+          "label": "input_string",
+          "type": "STRING",
+          "widget": {
+            "name": "input_string"
+          },
+          "link": 58
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "label": "OUTPUT",
+          "type": "STRING",
+          "shape": 3,
+          "links": [
+            41
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "AGENT",
+          "label": "AGENT",
+          "type": "AGENT",
+          "shape": 3,
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Agent"
+      },
+      "widgets_values": [
+        "",
+        "Based on the text, you generate the following prompts:\n\n\nImage_cover_prompt: prompt to generate an image that represents the main topic of the post\n\nImage01_prompt: prompt to generate a second image that represents the topic of the post\n\n\nOutput only the final json structure with the key and value. The values should be a textual description \nDo not wrap in markdown context.\n",
+        3
+      ]
+    },
+    {
+      "id": 39,
+      "type": "Griptape Create: Rules",
+      "pos": [
+        2136.356689453125,
+        3063.26318359375
+      ],
+      "size": [
+        420.594970703125,
+        297.63543701171875
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "RULES",
+          "label": "RULES",
+          "type": "RULESET",
+          "shape": 3,
+          "links": [
+            37
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "NAME",
+          "label": "NAME",
+          "type": "STRING",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Rules"
+      },
+      "widgets_values": [
+        "Stable diffusion composition",
+        "You create prompts for flux based on the request. Always start the prompt with \"illustration of\".\nAvoid at all costs explinations about  what it is trying to portray or simbolize. Just describe scenes based on the following instructions:\n\n1. **Topic**:\n   - Define the core subject of the image. Specify what the subject looks like, its pose, and the scene or setting.\n   - Example: “A futuristic warrior in a cyberpunk city, holding a plasma sword, neon lights reflecting off armor.”\n\n2. **Material**:\n   - Specify the rendering medium (e.g., digital painting, 3D render, photorealistic).\n   - Example: “Digital painting, highly detailed, vibrant colors.”\n\n\n6. **Sharpness**:\n   - Specify the level of clarity and focus for the image, such as sharpness or level of detail (e.g., “sharp focus,” “highly detailed textures”).\n   - Example: “Sharp focus, highly detailed textures.”\n\n7. **Extra Details**:\n   - Add atmospheric descriptors to enhance the mood of the image, such as “cinematic,” “breathtaking,” or “dystopian.”\n   - Example: “Cinematic, atmospheric fog, dystopian ambiance.”\n\n8. **Shade and Color**:\n   - Choose keywords related to color and shading to control the tone and mood, such as “moody lighting,” “warm tones,” or “iridescent.”\n   - Example: “Moody lighting, iridescent blue highlights.”\n\n9. **Lighting and Brightness**:\n   - Select the type of lighting to enhance the image (e.g., “dramatic shadows,” “studio lighting”).\n   - Example: “Dramatic shadows, soft ambient lighting.”\n\n10. **Negative Prompts**:\n    - List elements that should be excluded from the image, such as undesirable styles, colors, or features (e.g., “grainy,” “blurry,” “extra limbs”).\n    - Example: “Negative: grainy, blurry, deformed anatomy, watermark.”\n\n**Final Prompt Structure**:  \n- Combine the elements from each category to create a well-rounded prompt. For example:\n\n“Illustration of a futuristic warrior in a cyberpunk city, holding a plasma sword, neon lights reflecting off armor, digital painting, highly detailed, vaporwave aesthetic, cinematic lighting. Negative: blurry, grainy, deformed, low contrast.”\n\nObjective: Ensure that all prompts generated are strictly descriptive, focusing on detailed visual and compositional elements without including interpretive or subjective comments about the impact, emotions, or abstract qualities of the scene. Emotional aspects should be translated in chromatic and compositional descriptions only.\n\n\nExclude any phrases that convey subjective impressions, such as \"creating a sense of,\" \"highlighting the beauty of,\" or similar evaluative statements.\nFocus solely on describing the physical, compositional, and technical aspects of the scene or subject.\nEmphasize clarity and precision in detailing the subject, setting, lighting, and other visual elements.\nExample Transformation:\n\nBefore: \"Illustration of a vibrant collage showcasing Italy's biodiversity, featuring a harmonious mix of flora, fauna, and iconic landscapes, creating a sense of abundance and harmony.\"\nAfter: \"Illustration of a vibrant collage showcasing Italy's biodiversity, featuring a mix of flora, fauna, and iconic landscapes, including golden eagles over the Dolomites, wolves in the Apennines, and Mediterranean monk seals in clear waters.\"\nPurpose: Maintain focus on concrete visual descriptors.\n\n- Always ensure the prompt has a clear subject and scene description.\n- Prioritize the use of specific, well-defined terms for material and lighting.\n- Avoid vagueness and use precise keywords to shape the image outcome.\n- Balance creativity with clarity for effective image generation.\n\n\nAlways respond with your name"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3251.09716796875,
+        2070.6904296875
+      ],
+      "size": [
+        687.235107421875,
+        117.18994903564453
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "shape": 6,
+          "links": [
+            93
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "Illustration of the alarming rate of ocean warming, depicting a vast ocean absorbing intense heat, symbolized by fiery waves and rising steam, digital painting, highly detailed, cinematic lighting. Negative: blurry, grainy, deformed, low contrast."
+      ]
+    },
+    {
+      "id": 78,
+      "type": "GetTextFromJson",
+      "pos": [
+        3788.681884765625,
+        2779.57763671875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "json",
+          "type": "JSON",
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            94
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetTextFromJson"
+      },
+      "widgets_values": [
+        "Image01_prompt"
+      ]
+    }
+  ],
+  "links": [
+    [
+      27,
+      30,
+      0,
+      34,
+      3,
+      "RULESET"
+    ],
+    [
+      28,
+      29,
+      0,
+      33,
+      3,
+      "RULESET"
+    ],
+    [
+      29,
+      28,
+      0,
+      31,
+      3,
+      "RULESET"
+    ],
+    [
+      30,
+      34,
+      1,
+      36,
+      0,
+      "AGENT"
+    ],
+    [
+      31,
+      31,
+      1,
+      32,
+      0,
+      "AGENT"
+    ],
+    [
+      32,
+      33,
+      1,
+      35,
+      0,
+      "AGENT"
+    ],
+    [
+      33,
+      32,
+      0,
+      37,
+      0,
+      "TOOL_LIST"
+    ],
+    [
+      34,
+      35,
+      0,
+      37,
+      1,
+      "TOOL_LIST"
+    ],
+    [
+      35,
+      36,
+      0,
+      37,
+      2,
+      "TOOL_LIST"
+    ],
+    [
+      36,
+      37,
+      0,
+      38,
+      2,
+      "TOOL_LIST"
+    ],
+    [
+      37,
+      39,
+      0,
+      38,
+      3,
+      "RULESET"
+    ],
+    [
+      41,
+      38,
+      0,
+      41,
+      0,
+      "STRING"
+    ],
+    [
+      58,
+      53,
+      0,
+      38,
+      4,
+      "STRING"
+    ],
+    [
+      60,
+      59,
+      1,
+      54,
+      0,
+      "CLIP"
+    ],
+    [
+      61,
+      58,
+      0,
+      56,
+      0,
+      "LATENT"
+    ],
+    [
+      62,
+      59,
+      2,
+      56,
+      1,
+      "VAE"
+    ],
+    [
+      63,
+      56,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      64,
+      59,
+      0,
+      58,
+      0,
+      "MODEL"
+    ],
+    [
+      65,
+      60,
+      0,
+      58,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      66,
+      54,
+      0,
+      58,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      67,
+      55,
+      0,
+      58,
+      3,
+      "LATENT"
+    ],
+    [
+      68,
+      59,
+      1,
+      60,
+      0,
+      "CLIP"
+    ],
+    [
+      69,
+      67,
+      1,
+      62,
+      0,
+      "CLIP"
+    ],
+    [
+      70,
+      66,
+      0,
+      64,
+      0,
+      "LATENT"
+    ],
+    [
+      71,
+      67,
+      2,
+      64,
+      1,
+      "VAE"
+    ],
+    [
+      72,
+      64,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      67,
+      0,
+      66,
+      0,
+      "MODEL"
+    ],
+    [
+      74,
+      68,
+      0,
+      66,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      75,
+      62,
+      0,
+      66,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      76,
+      63,
+      0,
+      66,
+      3,
+      "LATENT"
+    ],
+    [
+      77,
+      67,
+      1,
+      68,
+      0,
+      "CLIP"
+    ],
+    [
+      78,
+      71,
+      0,
+      31,
+      1,
+      "CONFIG"
+    ],
+    [
+      79,
+      71,
+      0,
+      33,
+      1,
+      "CONFIG"
+    ],
+    [
+      80,
+      71,
+      0,
+      34,
+      1,
+      "CONFIG"
+    ],
+    [
+      81,
+      41,
+      0,
+      74,
+      0,
+      "STRING"
+    ],
+    [
+      85,
+      77,
+      0,
+      75,
+      0,
+      "STRING"
+    ],
+    [
+      90,
+      74,
+      0,
+      77,
+      0,
+      "JSON"
+    ],
+    [
+      91,
+      74,
+      0,
+      78,
+      0,
+      "JSON"
+    ],
+    [
+      93,
+      75,
+      0,
+      68,
+      1,
+      "STRING"
+    ],
+    [
+      94,
+      78,
+      0,
+      60,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0834705943388536,
+      "offset": [
+        -3153.3437267891295,
+        -1719.718708480969
+      ]
+    },
+    "node_versions": {
+      "comfyui-griptape": "2.2.6",
+      "was-node-suite-comfyui": "1.0.0",
+      "comfy-core": "0.3.14",
+      "comfyui-art-venture": "50abaace756b96f5f5dc2c9d72826ef371afd45e",
+      "comfyui-custom-scripts": "bbda5e52ad580c13ceaa53136d9c2bed9137bd2e"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
