@@ -1,70 +1,73 @@
-// app/actions/carousel-actions.ts
+"use server"
 
-"use server";
+import fs from "fs"
+import path from "path"
+import { checkComfyUIStatus, queuePrompt, getPromptResult, extractGeneratedContent } from "@/lib/api/comfyui-service"
 
-import fs from "fs";
-import path from "path";
-import { queueWorkflow, getWorkflowResult, checkComfyUIStatus } from "@/lib/api/comfyui-service";
-
-/** Helper function to load a JSON workflow from disk */
-function loadWorkflow(filename: string): any {
+/** Load the workflow JSON file */
+function loadWorkflow(filename = "2-Text Analysis.json"): any {
   try {
-    const filePath = path.join(process.cwd(), "lib", "workflows", filename);
-    const rawData = fs.readFileSync(filePath, "utf8");
-    const workflow = JSON.parse(rawData);
-    if (!workflow || !Array.isArray(workflow.nodes)) {
-      throw new Error("Invalid workflow file: 'nodes' array is missing.");
+    const filePath = path.join(process.cwd(), "lib", "workflows", filename)
+    console.log(`Loading workflow from: ${filePath}`)
+
+    if (!fs.existsSync(filePath)) {
+      throw new Error(`Workflow file not found: ${filePath}`)
     }
-    return workflow;
+
+    const workflow = JSON.parse(fs.readFileSync(filePath, "utf8"))
+    console.log("Workflow loaded successfully")
+    return workflow
   } catch (error) {
-    console.error(`Error loading workflow file ${filename}:`, error);
-    throw new Error(`Failed to load workflow file: ${filename}`);
+    console.error("Error loading workflow:", error)
+    throw error
   }
 }
 
-/** Minimal error handler */
-async function handleApiError(error: unknown, context: string): Promise<never> {
-  console.error(`Error in ${context}:`, error);
-  if (!(await checkComfyUIStatus())) {
-    throw new Error("ComfyUI service is not available. Please check your connection and try again.");
-  }
-  throw new Error(`Failed to ${context}. Please try again later.`);
-}
-
-/**
- * generateTextAnalysis:
- * 1. Loads the workflow ("1-Text Analysis.json").
- * 2. Inserts the user prompt into Node 1.
- * 3. Queues the workflow to ComfyUI.
- * 4. Waits for the result.
- * 5. Extracts the raw output (the widget_values array from Node 4)
- * 6. Returns that array.
- */
+/** Generate text analysis using ComfyUI */
 export async function generateTextAnalysis(prompt: string): Promise<string[]> {
+  console.log("Generating text analysis with prompt:", prompt)
+
   try {
-    console.log("Generating text analysis with prompt:", prompt);
+    // Check if ComfyUI is available
     if (!(await checkComfyUIStatus())) {
-      throw new Error("ComfyUI service is not available. Please check your connection and try again.");
-    }
-    const workflow = loadWorkflow("1-Text Analysis.json");
-    const queueResult = await queueWorkflow(workflow, { prompt });
-    const promptId = queueResult.prompt_id;
-    console.log("Prompt ID:", promptId);
-
-    // Fetch workflow result from history
-    const history = await getWorkflowResult(promptId);
-
-    // In the flattened workflow, we expect Node 4's output under key "4"
-    const node4 = history.outputs?.["4"] || history.outputs?.[4];
-    if (!node4 || !node4.widgets_values || !Array.isArray(node4.widgets_values)) {
-      console.error("Outputs from node 4:", history.outputs);
-      throw new Error("No valid output found from node 4");
+      throw new Error("ComfyUI service is not available. Please check your connection and try again.")
     }
 
-    console.log("Extracted widget_values from node 4:", JSON.stringify(node4.widgets_values, null, 2));
-    // Return the widget_values array as the final dynamic output.
-    return node4.widgets_values;
+    // Load the workflow
+    const workflow = loadWorkflow()
+    console.log("Workflow loaded")
+
+    // Queue the prompt
+    console.log("Queueing prompt...")
+    const queueResult = await queuePrompt(workflow, { prompt })
+    console.log("Queue result:", queueResult)
+
+    // Wait a moment to ensure the workflow has time to process
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+    // Get the result
+    console.log("Fetching result...")
+    const result = await getPromptResult(queueResult.prompt_id)
+
+    // Log the raw result for debugging
+    console.log("Raw result structure:", JSON.stringify(result, null, 2))
+
+    // Extract the generated content
+    try {
+      const content = extractGeneratedContent(result)
+      console.log("Extracted content:", content)
+
+      // Return the content as an array with a single item
+      return [content]
+    } catch (extractError: any) {
+      console.error("Error extracting content:", extractError)
+
+      // If extraction fails, return the error message and raw result
+      return [`Error extracting content: ${extractError.message}`, `Raw result: ${JSON.stringify(result, null, 2)}`]
+    }
   } catch (error: any) {
-    return handleApiError(error, "generate text analysis");
+    console.error("Error in generateTextAnalysis:", error)
+    return [`Error: ${error.message}`]
   }
 }
+

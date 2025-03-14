@@ -1,85 +1,93 @@
 "use client"
 
-import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
-import type { CarouselData, TextAnalysisData } from "@/types/carousel"
 import { Loader2 } from "lucide-react"
-// import { generateCarouselText } from "@/app/actions/carousel-actions"
 import { toast } from "sonner"
 
-interface Step02Props {
-  textAnalysis: TextAnalysisData | null
-  onCarouselDataGenerated: (data: CarouselData) => void
-}
-
-export function Step02({ textAnalysis, onCarouselDataGenerated }: Step02Props) {
+/**
+ * EXAMPLE STEP-02: If there's no raw data from step-01, we immediately
+ * redirect the user back to /step-01. This ensures "step-02" is
+ * inaccessible if the content is not generated.
+ */
+export default function Step02() {
+  const router = useRouter()
   const [loading, setLoading] = useState(false)
-  const [result, setResult] = useState<CarouselData | null>(null)
+  const [rawData, setRawData] = useState<any>(null)
 
-  const formatTextAnalysis = (data: TextAnalysisData | null): string => {
-    if (!data) return ""
+  useEffect(() => {
+    // On mount, check localStorage for "step01_raw"
+    const savedRaw = localStorage.getItem("step01_raw")
+    if (!savedRaw) {
+      // If no data at all, redirect
+      router.push("/step-01")
+    } else {
+      // Attempt to parse
+      try {
+        const parsed = JSON.parse(savedRaw)
+        // If empty or invalid, also go back
+        if (!parsed || !Object.keys(parsed).length) {
+          router.push("/step-01")
+        } else {
+          setRawData(parsed)
+        }
+      } catch {
+        router.push("/step-01")
+      }
+    }
+  }, [router])
 
-    return `
-Main Title: ${data.mainTitle}
-
-Author: ${data.author}
-
-Important Facts:
-${data.importantFacts.map((fact, index) => `${index + 1}. ${fact}`).join("\n")}
-
-Opposing Forces:
-${data.opposingForces.map((force, index) => `${index + 1}. ${force}`).join("\n")}
-
-Notable Quotes:
-${data.notableQuotes.map((quote, index) => `${index + 1}. ${quote}`).join("\n")}
-  `
-  }
-
-  const handleGenerateCarouselText = async () => {
-    if (!textAnalysis) return
-
+  // This is just a placeholder function to show how you might do something
+  // else on step-02 with the data from step-01
+  const handleSomeAction = async () => {
     setLoading(true)
-
-/*     try {
-      // Call the server action to generate carousel text
-      const data = await generateCarouselText(textAnalysis)
-
-      setResult(data)
-      onCarouselDataGenerated(data)
-      toast.success("Carousel text generated", {
-        description: "Your carousel text has been successfully generated.",
-      })
+    try {
+      // Do some next step with the data
+      toast.success("Step02 is handling the data now...")
     } catch (error) {
-      console.error("Error generating carousel text:", error)
-      toast.error("Error", {
-        description: error instanceof Error ? error.message : "Failed to generate carousel text",
-      })
+      toast.error("Error in step-02 action")
     } finally {
       setLoading(false)
     }
-  } */
+  }
+
+  if (!rawData) {
+    // Optionally show a loader while we check localStorage
+    return (
+      <div className="flex h-[300px] items-center justify-center text-muted-foreground">
+        <Loader2 className="mr-2 h-8 w-8 animate-spin" />
+        Checking data...
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6 animate-fade-in">
+      <h2 className="text-xl font-bold mb-2">Step-02: Next Step</h2>
+
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="transition-all duration-300 hover:shadow-md">
           <CardContent className="p-6">
-            <h3 className="mb-4 text-lg font-medium">Input</h3>
-            <Textarea className="min-h-[300px] resize-none" value={formatTextAnalysis(textAnalysis)} readOnly />
+            <h3 className="mb-4 text-lg font-medium">Data from step-01</h3>
+            <p className="text-sm text-muted-foreground mb-2">Raw JSON (for example):</p>
+            <div className="bg-muted p-2 rounded-md overflow-x-auto">
+              <pre className="text-xs">{JSON.stringify(rawData, null, 2)}</pre>
+            </div>
             <Button
-              onClick={handleGenerateCarouselText}
+              onClick={handleSomeAction}
               className="mt-4 w-full transition-all duration-300 hover:scale-[1.02]"
-              disabled={loading || !textAnalysis}
+              disabled={loading}
             >
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Generating carousel text...
+                  Doing Step02 action...
                 </>
               ) : (
-                "Generate text for the carousel"
+                "Do Step02 Action"
               )}
             </Button>
           </CardContent>
@@ -87,55 +95,14 @@ ${data.notableQuotes.map((quote, index) => `${index + 1}. ${quote}`).join("\n")}
 
         <Card className="transition-all duration-300 hover:shadow-md">
           <CardContent className="p-6">
-            <h3 className="mb-4 text-lg font-medium">Output</h3>
-            {result ? (
-              <div className="space-y-4 overflow-y-auto max-h-[500px] pr-2">
-                <div>
-                  <h4 className="font-medium">Title:</h4>
-                  <p>{result.Title}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-medium">Subtitle:</h4>
-                  <p>{result.Subtitle}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-medium">Text 01:</h4>
-                  <p>{result.Text01}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-medium">Text 02:</h4>
-                  <p>{result.Text02}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-medium">Text 03:</h4>
-                  <p>{result.Text03}</p>
-                </div>
-
-                <div>
-                  <h4 className="font-medium">Hashtag:</h4>
-                  <p>{result.Hashtag}</p>
-                </div>
-              </div>
-            ) : (
-              <div className="flex h-[300px] items-center justify-center text-muted-foreground">
-                {loading ? (
-                  <div className="flex flex-col items-center">
-                    <Loader2 className="mb-2 h-8 w-8 animate-spin" />
-                    <p>Generating carousel text...</p>
-                  </div>
-                ) : (
-                  <p>Generated carousel text will appear here</p>
-                )}
-              </div>
-            )}
+            <h3 className="mb-4 text-lg font-medium">Your Next UI / Steps</h3>
+            <p>Perform your additional logic here, or display content derived from step-01 data.</p>
+            <p className="text-sm mt-2 text-muted-foreground">
+              This entire page is only accessible if there was valid data from step-01 stored in localStorage.
+            </p>
           </CardContent>
         </Card>
       </div>
     </div>
   )
-}
 }
